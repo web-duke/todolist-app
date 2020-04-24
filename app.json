@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Todo Liste App",
+    "slug": "todo-list-app-prenom",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.faridrehila.todolistapp",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.yourcompany.todolistapp"
+    }
+  }
+}
