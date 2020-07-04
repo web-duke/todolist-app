@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-
+import { StyleSheet, View } from "react-native";
+import { useSelector } from "react-redux";
+import { getTasks } from "../../redux/selectors";
+import FloatingButton from "../_Shared/FloatingButton";
+import CountersContainer from "./CountersContainer";
 import TaskForm from "./TaskForm";
 import TasksList from "./TasksList";
-import CountersContainer from "./CountersContainer";
-import FloatingButton from "../_Shared/FloatingButton";
 
 function TasksContainer(props) {
   const [tasks, setTasks] = useState([
     { id: new Date().getTime(), title: "Nouvelle tâches", completed: false },
   ]);
+
+  const allTasks = useSelector(getTasks);
+  console.log("all tasks : ", allTasks);
+
   const [isFormOpened, setIsFormOpened] = useState(true);
 
   const onAddTask = (title) => {

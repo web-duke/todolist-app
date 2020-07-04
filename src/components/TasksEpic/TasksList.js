@@ -18,7 +18,7 @@ const TasksList = ({ tasks, onChangeStatus, onDeleteTask }) => {
     <FlatList
       data={tasks}
       renderItem={_renderItem}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id.toString()}
     />
   );
 };
