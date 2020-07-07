@@ -1,4 +1,4 @@
-const { ADD_TASK, TOGGLE_TASK } = require("./actionsType");
+const { ADD_TASK, TOGGLE_TASK, DELETE_TASK } = require("./actionsType");
 
 export const addTask = (title) => ({
   type: ADD_TASK,
@@ -11,6 +11,13 @@ export const addTask = (title) => ({
 
 export const toggleTask = (id) => ({
   type: TOGGLE_TASK,
+  payload: {
+    id,
+  },
+});
+
+export const deleteTask = (id) => ({
+  type: DELETE_TASK,
   payload: {
     id,
   },
