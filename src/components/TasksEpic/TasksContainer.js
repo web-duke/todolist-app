@@ -14,17 +14,7 @@ function TasksContainer(props) {
 
   const allTasks = useSelector(getTasks);
   console.log("all tasks : ", allTasks);
-
   const [isFormOpened, setIsFormOpened] = useState(true);
-
-  const onAddTask = (title) => {
-    const newTask = {
-      id: new Date().getTime(),
-      title: title,
-      completed: false,
-    };
-    setTasks([newTask, ...tasks]);
-  };
 
   const onChangeStatus = (id) => {
     let newTasks = [];
@@ -74,7 +64,7 @@ function TasksContainer(props) {
 
   return (
     <View style={styles.container}>
-      {isFormOpened && <TaskForm onAddTask={onAddTask} />}
+      {isFormOpened && <TaskForm />}
       <CountersContainer
         nbTasks={tasks.length}
         nbTasksCompleted={() => getTasksCompleted()}

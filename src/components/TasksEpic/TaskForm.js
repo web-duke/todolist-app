@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Button } from "react-native";
+import { Button, StyleSheet, TextInput, View } from "react-native";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/actions";
 
-const TaskFrom = ({ onAddTask }) => {
+const TaskFrom = () => {
   const [title, setTitle] = useState("");
+  const dispatch = useDispatch();
 
-  const _onChangeText = value => {
+  const _onChangeText = (value) => {
     setTitle(value);
   };
 
   const _onPressBtn = () => {
     if (title.length > 0) {
-      onAddTask(title);
+      dispatch(addTask(title));
       setTitle("");
     }
   };
@@ -30,15 +33,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 15
+    marginBottom: 15,
   },
   containerInput: {
     width: "75%",
     borderWidth: 1,
     borderColor: "black",
     borderRadius: 4,
-    paddingLeft: 7
-  }
+    paddingLeft: 7,
+  },
 });
 
 export default TaskFrom;
