@@ -8,43 +8,13 @@ import TaskForm from "./TaskForm";
 import TasksList from "./TasksList";
 
 function TasksContainer(props) {
-  const [tasks, setTasks] = useState([
-    { id: new Date().getTime(), title: "Nouvelle tâches", completed: false },
-  ]);
+  const tasks = useSelector(getTasks);
 
-  const allTasks = useSelector(getTasks);
-  console.log("all tasks : ", allTasks);
   const [isFormOpened, setIsFormOpened] = useState(true);
 
-  const onChangeStatus = (id) => {
-    let newTasks = [];
+  const onChangeStatus = (id) => {};
 
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        newTasks.push({
-          id: id,
-          title: task.title,
-          completed: !task.completed,
-        });
-      } else {
-        newTasks.push(task);
-      }
-    });
-
-    setTasks(newTasks);
-  };
-
-  const onDeleteTask = (id) => {
-    let newTasks = [];
-
-    tasks.forEach((task) => {
-      if (task.id !== id) {
-        newTasks.push(task);
-      }
-    });
-
-    setTasks(newTasks);
-  };
+  const onDeleteTask = (id) => {};
 
   const getTasksCompleted = () => {
     let counter = 0;
