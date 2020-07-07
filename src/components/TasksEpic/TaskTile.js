@@ -1,9 +1,13 @@
 import React from "react";
 import { Image, Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
+import { toggleTask } from "../../redux/actions";
 
-const TaskTile = ({ id, title, completed, onChangeStatus, onDeleteTask }) => {
+const TaskTile = ({ id, title, completed, onDeleteTask }) => {
+  const dispatch = useDispatch();
+
   return (
-    <TouchableOpacity onPress={() => onChangeStatus(id)}>
+    <TouchableOpacity onPress={() => dispatch(toggleTask(id))}>
       <View style={styles.container}>
         <View style={styles.subContainer}>
           <Image
@@ -35,20 +39,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   subContainer: {
     flexDirection: "row",
     // justifyContent:'flex-start'
-    alignItems: "center"
+    alignItems: "center",
   },
   title: {
-    marginLeft: 30
+    marginLeft: 30,
   },
   icon: {
     width: 30,
-    height: 30
-  }
+    height: 30,
+  },
 });
 
 export default TaskTile;

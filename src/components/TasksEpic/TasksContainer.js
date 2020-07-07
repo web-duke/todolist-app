@@ -12,8 +12,6 @@ function TasksContainer(props) {
 
   const [isFormOpened, setIsFormOpened] = useState(true);
 
-  const onChangeStatus = (id) => {};
-
   const onDeleteTask = (id) => {};
 
   const getTasksCompleted = () => {
@@ -39,11 +37,7 @@ function TasksContainer(props) {
         nbTasks={tasks.length}
         nbTasksCompleted={() => getTasksCompleted()}
       />
-      <TasksList
-        tasks={tasks}
-        onChangeStatus={onChangeStatus}
-        onDeleteTask={onDeleteTask}
-      />
+      <TasksList tasks={tasks} onDeleteTask={onDeleteTask} />
       <FloatingButton toggleForm={toggleForm} isFormOpened={isFormOpened} />
     </View>
   );
